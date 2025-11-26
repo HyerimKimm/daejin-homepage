@@ -2,6 +2,22 @@
 @use "@/styles/mixin";
 
 .page_wrap {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  @include mixin.flex(column, flex-start, center, 0, 0);
+}
+
+.apply_button {
+  width: 200px;
+  height: 50px;
+  @include mixin.flex(row, center, center, 0, 0);
+  background-color: variables.$brand01;
+  color: variables.$white;
+  border-radius: 5px;
+  font-size: variables.$fl;
+  font-weight: 600;
+
+  &:hover {
+    background-color: variables.$brand02;
+  }
 }

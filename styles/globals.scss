@@ -7,6 +7,8 @@ body {
   font-family: variables.$defaultFont;
   width: 100vw;
   height: 100vh;
+  color: variables.$white;
+  background-color: variables.$grey08;
 }
 
 h1 {
