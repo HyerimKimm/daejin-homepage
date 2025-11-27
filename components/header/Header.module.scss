@@ -1,0 +1,26 @@
+@use "@/styles/_variables";
+@use "@/styles/_mixin";
+
+.header_wrap {
+  width: 100%;
+  height: variables.$headerHeight;
+  border-bottom: 1px solid variables.$grey05;
+  @include mixin.flex(row, space-between, center, 0, 0);
+  padding: 0 20px;
+}
+
+.logo {
+  height: 100%;
+  @include mixin.flex(row, center, center, 0, 0);
+}
+
+.nav_wrap {
+  height: 100%;
+  @include mixin.flex(row, center, center, 0, 1);
+}
+
+.nav_item {
+  max-width: 100px;
+  height: 100%;
+  @include mixin.flex(row, center, center, 0, 1);
+}

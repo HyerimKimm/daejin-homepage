@@ -11,12 +11,10 @@ export default function Three() {
   return (
     <Canvas
       style={{
-        width: "700px",
-        height: "700px",
+        width: "100%",
+        aspectRatio: "1 / 1",
         maxWidth: "100vw",
         maxHeight: "100vh",
-        // backgroundColor: "rgba(255,255,255,0.1)",
-        // borderRadius: "50%",
       }}
       camera={{
         aspect: 1,
@@ -30,9 +28,9 @@ export default function Three() {
         <ambientLight intensity={2} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
         <pointLight position={[10, 10, 10]} intensity={1} />
-        <gridHelper args={[10, 10]} />
-        <axesHelper args={[5]} />
-        <Model scale={[3, 3, 3]} />
+        {/* <gridHelper args={[10, 10]} /> */}
+        {/* <axesHelper args={[5]} /> */}
+        <Model scale={[10, 10, 10]} />
         <OrbitControls
           enableZoom={true}
           enableRotate={true}

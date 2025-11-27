@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 
+import Header from "@/components/header/Header";
+
 import "@/styles/globals.scss";
 
 const notoSansKR = Noto_Sans_KR({
@@ -20,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${notoSansKR.variable}`}>{children}</body>
+      <body className={`${notoSansKR.variable}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
