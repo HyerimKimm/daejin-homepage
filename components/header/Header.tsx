@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className={styles.header_wrap}>
       <Link href="/" className={styles.logo}>
-        <Image src="/logo.svg" alt="logo" width={45} height={45} />
+        <Image src="/logos/logo.svg" alt="logo" width={45} height={45} />
         <span>D.Atelier</span>
       </Link>
       <nav className={styles.nav_wrap}>

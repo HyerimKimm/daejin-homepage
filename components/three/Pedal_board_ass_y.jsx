@@ -8,7 +8,7 @@ import React from "react";
 import { SkeletonUtils } from "three-stdlib";
 
 export function Model({ scale, is635PanelMount = true }) {
-  const { scene } = useGLTF("/pedal_board_ass_y.gltf");
+  const { scene } = useGLTF("/models/pro_m3/pedal_board_ass_y.gltf");
 
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
 
@@ -1036,4 +1036,4 @@ export function Model({ scale, is635PanelMount = true }) {
   );
 }
 
-useGLTF.preload("/pedal_board_ass_y.gltf");
+useGLTF.preload("/models/pro_m3/pedal_board_ass_y.gltf");
