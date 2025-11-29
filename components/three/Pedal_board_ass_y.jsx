@@ -7,12 +7,15 @@ import { useGraph } from "@react-three/fiber";
 import React from "react";
 import { SkeletonUtils } from "three-stdlib";
 
-export function Model(props) {
+export function Model({ scale }) {
   const { scene } = useGLTF("/pedal_board_ass_y.gltf");
+
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
+
   const { nodes, materials } = useGraph(clone);
+
   return (
-    <group {...props} dispose={null}>
+    <group scale={scale} dispose={null}>
       <OrthographicCamera
         makeDefault={false}
         far={100}
