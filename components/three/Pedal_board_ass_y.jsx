@@ -7,7 +7,7 @@ import { useGraph } from "@react-three/fiber";
 import React from "react";
 import { SkeletonUtils } from "three-stdlib";
 
-export function Model({ scale }) {
+export function Model({ scale, is635PanelMount = true }) {
   const { scene } = useGLTF("/pedal_board_ass_y.gltf");
 
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
@@ -51,6 +51,7 @@ export function Model({ scale }) {
           position={[0, 0, -1]}
         />
       </directionalLight>
+      {/* 하단 볼캐치 부품 */}
       <group position={[0, 0.171, -0.095]} rotation={[Math.PI / 2, 0, 0]}>
         <mesh
           geometry={nodes["MSBR-1-1"].geometry}
@@ -554,12 +555,14 @@ export function Model({ scale }) {
         position={[0.343, 0.033, 0.198]}
         rotation={[Math.PI / 2, 1.491, -Math.PI / 2]}
       />
-      <mesh
-        geometry={nodes["635mm_패널마운트-3"].geometry}
-        material={materials["matte aluminum-11"]}
-        position={[-0.345, 0.043, -0.035]}
-        rotation={[1.316, 0, -Math.PI / 2]}
-      />
+      {is635PanelMount && (
+        <mesh
+          geometry={nodes["635mm_패널마운트-3"].geometry}
+          material={materials["matte aluminum-11"]}
+          position={[-0.345, 0.043, -0.035]}
+          rotation={[1.316, 0, -Math.PI / 2]}
+        />
+      )}
       <mesh
         geometry={nodes["R02_Support_Block3-1"].geometry}
         material={materials["matte aluminum-14"]}
@@ -581,12 +584,14 @@ export function Model({ scale }) {
         position={[-0.334, 0.124, -0.177]}
         rotation={[0.855, 0, Math.PI]}
       />
-      <mesh
-        geometry={nodes["635mm_패널마운트-1"].geometry}
-        material={materials["matte aluminum-11"]}
-        position={[-0.345, 0.043, -0.075]}
-        rotation={[1.316, 0, -Math.PI / 2]}
-      />
+      {is635PanelMount && (
+        <mesh
+          geometry={nodes["635mm_패널마운트-1"].geometry}
+          material={materials["matte aluminum-11"]}
+          position={[-0.345, 0.043, -0.075]}
+          rotation={[1.316, 0, -Math.PI / 2]}
+        />
+      )}
       <mesh
         geometry={nodes["R03_Frame2-1"].geometry}
         material={materials["matte aluminum-17"]}
@@ -609,6 +614,7 @@ export function Model({ scale }) {
           material={materials["matte aluminum-13"]}
         />
       </group>
+      {/* 상단 볼캐치 부품 */}
       <mesh
         geometry={nodes["upper_catch-6-1"].geometry}
         material={materials["color-16"]}
@@ -664,12 +670,14 @@ export function Model({ scale }) {
         position={[0, 0.187, -0.065]}
         rotation={[-Math.PI, -Math.PI / 2, 0]}
       />
-      <mesh
-        geometry={nodes["635mm_패널마운트-4"].geometry}
-        material={materials["matte aluminum-11"]}
-        position={[0.345, 0.043, -0.035]}
-        rotation={[1.316, 0, Math.PI / 2]}
-      />
+      {is635PanelMount && (
+        <mesh
+          geometry={nodes["635mm_패널마운트-4"].geometry}
+          material={materials["matte aluminum-11"]}
+          position={[0.345, 0.043, -0.035]}
+          rotation={[1.316, 0, Math.PI / 2]}
+        />
+      )}
       <mesh
         geometry={nodes["socket_head_cap_screw_ks-40"].geometry}
         material={materials["satin finish stainless steel-1"]}
@@ -996,12 +1004,14 @@ export function Model({ scale }) {
         position={[0.061, 0.068, -0.195]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
-      <mesh
-        geometry={nodes["635mm_패널마운트-2"].geometry}
-        material={materials["matte aluminum-11"]}
-        position={[0.345, 0.043, -0.075]}
-        rotation={[-1.825, 0, Math.PI / 2]}
-      />
+      {is635PanelMount && (
+        <mesh
+          geometry={nodes["635mm_패널마운트-2"].geometry}
+          material={materials["matte aluminum-11"]}
+          position={[0.345, 0.043, -0.075]}
+          rotation={[-1.825, 0, Math.PI / 2]}
+        />
+      )}
       <mesh
         geometry={nodes["MirrorR02_Support_Block1-2"].geometry}
         material={materials["matte aluminum-12"]}

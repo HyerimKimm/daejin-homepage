@@ -30,7 +30,7 @@ export default function Three() {
         <pointLight position={[10, 10, 10]} intensity={1} />
         {/* <gridHelper args={[10, 10]} /> */}
         {/* <axesHelper args={[5]} /> */}
-        <Model scale={[10, 10, 10]} />
+        <Model scale={[10, 10, 10]} is635PanelMount={true} />
         <OrbitControls
           enableZoom={true}
           enableRotate={true}

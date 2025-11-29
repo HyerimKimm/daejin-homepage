@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./Header.module.scss";
@@ -6,7 +7,8 @@ export default function Header() {
   return (
     <header className={styles.header_wrap}>
       <Link href="/" className={styles.logo}>
-        로고
+        <Image src="/logo.svg" alt="logo" width={45} height={45} />
+        <span>D.Atelier</span>
       </Link>
       <nav className={styles.nav_wrap}>
         <Link href="/product/list" className={styles.nav_item}>
