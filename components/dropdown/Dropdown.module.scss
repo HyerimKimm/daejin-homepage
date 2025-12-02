@@ -1,0 +1,24 @@
+@use "@/styles/_variables";
+@use "@/styles/_mixin";
+
+.dropdown_wrap {
+  position: relative;
+}
+
+.dropdown_button {
+  @include mixin.flex(row, space-between, center, 4px);
+  width: 100%;
+  padding: 4px 8px;
+  background-color: variables.$grey07;
+  border-radius: 8px;
+  border: 1px solid variables.$grey05;
+  color: variables.$white;
+  font-size: variables.$fn;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: variables.$grey06;
+  }
+}

@@ -1,3 +1,4 @@
+import Dropdown from "@/components/dropdown/Dropdown";
 import Three from "@/components/three/Three";
 
 import styles from "./page.module.scss";
@@ -14,7 +15,7 @@ export default function ProductDetailPage() {
 
           <div>
             <label>추가 부품</label>
-            <select>
+            {/* <select>
               <option value="multi_tab">멀티탭</option>
               <option value="cable_holder">캐이블 홀더</option>
               <option value="gas_spring">가스 스프링</option>
@@ -23,7 +24,8 @@ export default function ProductDetailPage() {
               <option value="635_cable_panel_mount">
                 6.35mm 캐이블 패널 마운트
               </option>
-            </select>
+            </select> */}
+            <Dropdown />
           </div>
           <div>
             <label>수량</label>
