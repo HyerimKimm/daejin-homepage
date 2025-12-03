@@ -22,3 +22,57 @@
     background-color: variables.$grey06;
   }
 }
+
+.dropdown_menu {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  width: 100%;
+  background-color: variables.$grey07;
+  border-radius: 8px;
+  border: 1px solid variables.$grey05;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform-origin: top;
+}
+
+.dropdown_menu_open {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0) scaleY(1);
+}
+
+.dropdown_menu_closed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px) scaleY(0.95);
+  pointer-events: none;
+}
+
+.dropdown_item {
+  width: 100%;
+  border-bottom: 1px solid variables.$grey06;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  > button {
+    width: 100%;
+    padding: 4px 8px;
+    background-color: transparent;
+    border: none;
+    color: variables.$white;
+    font-size: variables.$fn;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: variables.$brand01Light;
+    }
+  }
+}

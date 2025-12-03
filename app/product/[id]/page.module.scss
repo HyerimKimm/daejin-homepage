@@ -36,3 +36,8 @@
     width: 100%;
   }
 }
+
+.form_item {
+  width: 100%;
+  @include mixin.flex(row, space-between, center, 8px, 0);
+}
