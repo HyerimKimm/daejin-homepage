@@ -33,26 +33,18 @@ export default function ProductListPage() {
         </button>
       </aside>
       <ul className={styles.product_list}>
-        <li>
-          <Image
-            src="/pedal.png"
-            alt="Pro-M3"
-            priority
-            width={100}
-            height={100}
-          />
-          <Link href="/product/1">Pro-M3</Link>
-        </li>
-        <li>
-          <Image
-            src="/pedal.png"
-            alt="Pro-M3"
-            priority
-            width={100}
-            height={100}
-          />
-          <Link href="/product/2">STD-M1</Link>
-        </li>
+        <Link href="/product/1">
+          <li>
+            <Image
+              src="/pedal.png"
+              alt="Pro-M3"
+              priority
+              width={100}
+              height={100}
+            />
+            Pro-M3
+          </li>
+        </Link>
       </ul>
     </main>
   );
