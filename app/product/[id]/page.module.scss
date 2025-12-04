@@ -37,4 +37,12 @@
 .form_item {
   width: 100%;
   @include mixin.flex(row, space-between, center, 8px, 0);
+  padding: 8px 12px;
+  background-color: orange;
+}
+
+.button {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: variables.$brand01;
 }

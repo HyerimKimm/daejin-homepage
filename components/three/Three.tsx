@@ -5,7 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 
-import { Model } from "./Pedal_board_ass_y";
+import { Model } from "./models/pro_m3/Pedal_board_ass_y";
 
 export default function Three() {
   return (

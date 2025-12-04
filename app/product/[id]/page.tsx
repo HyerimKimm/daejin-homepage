@@ -1,3 +1,4 @@
+import Button from "@/components/button/Button";
 import Dropdown from "@/components/dropdown/Dropdown";
 import Three from "@/components/three/Three";
 
@@ -48,7 +49,7 @@ export default function ProductDetailPage() {
             <label>수량</label>
             <input type="number" min="1" max="100" />
           </div>
-          <button type="submit">구매하기</button>
+          <Button type="submit">구매하기</Button>
         </form>
       </article>
     </main>
