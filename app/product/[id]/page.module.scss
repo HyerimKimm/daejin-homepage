@@ -39,6 +39,11 @@
   @include mixin.flex(row, space-between, center, 8px, 0);
   padding: 8px 12px;
   background-color: orange;
+
+  > label {
+    flex-shrink: 0;
+    flex-basis: content;
+  }
 }
 
 .button {
