@@ -9,6 +9,11 @@
 .logo {
   height: 100%;
   @include mixin.flex(row, center, center, 0, 0);
+
+  > img {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 .nav_wrap {
