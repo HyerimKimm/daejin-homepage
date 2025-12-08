@@ -8,8 +8,8 @@ import styles from "./Dropdown.module.scss";
 
 export default function Dropdown({
   items = [],
+  selectedItems = [],
   placeholder = "선택해 주세요",
-  value = "",
   onChange = () => {},
   style = {},
 }: {
@@ -17,9 +17,12 @@ export default function Dropdown({
     label: string;
     value: string;
   }[];
+  selectedItems?: {
+    label: string;
+    value: string;
+  }[];
   placeholder?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (item: { label: string; value: string }) => void;
   style?: React.CSSProperties;
 }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -53,7 +56,7 @@ export default function Dropdown({
           setIsOpen((prev) => !prev);
         }}
       >
-        <span>{value || placeholder}</span>
+        <span>{selectedItems.map((item) => item.label).join(", ") || placeholder}</span>
         <ArrowIcon width={20} height={20} rotate={isOpen ? 270 : 90} />
       </button>
       {items.length > 0 && (
@@ -64,7 +67,10 @@ export default function Dropdown({
         >
           {items.map((item) => (
             <li className={styles.dropdown_item} key={item.value}>
-              <button type="button">{item.label}</button>
+              <button type="button" onClick={()=>{
+                onChange(item);
+                setIsOpen(false);
+              }}>{item.label}</button>
             </li>
           ))}
         </ul>

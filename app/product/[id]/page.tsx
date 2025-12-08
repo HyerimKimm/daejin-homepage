@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import Button from "@/components/button/Button";
 import Dropdown from "@/components/dropdown/Dropdown";
 import Three from "@/components/three/Three";
@@ -5,6 +9,10 @@ import Three from "@/components/three/Three";
 import styles from "./page.module.scss";
 
 export default function ProductDetailPage() {
+  const [selectedOptions, setSelectedOptions] = useState<
+    { label: string; value: string }[]
+  >([]);
+
   const items = [
     {
       label: "멀티탭",
@@ -41,7 +49,19 @@ export default function ProductDetailPage() {
             <label>추가 부품</label>
             <Dropdown
               items={items}
+              selectedItems={selectedOptions}
               placeholder="선택해 주세요"
+              onChange={(item: { label: string; value: string }) => {
+                if (
+                  selectedOptions.some((option) => option.value === item.value)
+                ) {
+                  setSelectedOptions((prev) =>
+                    prev.filter((option) => option.value !== item.value),
+                  );
+                } else {
+                  setSelectedOptions((prev) => [...prev, item]);
+                }
+              }}
               style={{ flexGrow: 1 }}
             />
           </div>
