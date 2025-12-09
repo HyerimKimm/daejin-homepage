@@ -40,11 +40,10 @@ export default function ProductDetailPage() {
     <main className={styles.page_wrap}>
       <article className={styles.article_wrap}>
         <div className={styles.info_wrap}>
+          <h3>폐달보드 Pro-M3</h3>
           <Three />
         </div>
         <form className={styles.form_wrap}>
-          <h1>폐달보드 Pro-M3</h1>
-
           <div className={styles.form_item}>
             <label>추가 부품</label>
             <Dropdown

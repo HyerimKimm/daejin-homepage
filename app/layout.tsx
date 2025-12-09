@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "D.Atelier - 프리미엄 폐달보드 & 커스텀 금속 제품",
     description:
       "기구 설계 전문가가 제작하는 프리미엄 폐달보드와 다양한 커스텀 금속 제품을 만나보세요.",
-    images: ["/pedal.png"],
+    // images: ["/pedal.png"],
   },
   robots: {
     index: true,
