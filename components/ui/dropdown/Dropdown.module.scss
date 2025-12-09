@@ -5,7 +5,7 @@
 .dropdown_button {
   @include mixin.flex(row, space-between, center, 4px);
   width: 100%;
-  padding: 4px 8px;
+  padding: 8px 12px;
   background-color: variables.$grey07;
   border-radius: 8px;
   border: 1px solid variables.$grey05;
@@ -14,6 +14,12 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+
+  > .dropdown_button_text {
+    &.nonSelected {
+      color: variables.$grey05;
+    }
+  }
 
   &:hover {
     background-color: variables.$grey06;
@@ -31,22 +37,22 @@
   overflow: hidden;
   transition:
     max-height 0.3s ease,
-    opacity 0.3s ease,
+    opacity 0.1s ease,
     transform 0.3s ease;
   transform-origin: top;
 }
 
 .dropdown_menu_open {
   max-height: 500px;
-  opacity: 1;
   transform: translateY(0) scaleY(1);
+  opacity: 1;
 }
 
 .dropdown_menu_closed {
   max-height: 0;
-  opacity: 0;
   transform: translateY(-10px) scaleY(0.95);
   pointer-events: none;
+  opacity: 0;
 }
 
 .dropdown_item {
@@ -59,7 +65,7 @@
 
   > button {
     width: 100%;
-    padding: 4px 8px;
+    padding: 8px 12px;
     background-color: transparent;
     border: none;
     color: variables.$white;
@@ -67,6 +73,19 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+
+    &.selected {
+      color: variables.$brand01;
+
+      &::after {
+        content: "✓";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
 
     &:hover {
       color: variables.$brand01Light;

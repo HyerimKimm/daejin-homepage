@@ -56,7 +56,9 @@ export default function Dropdown({
           setIsOpen((prev) => !prev);
         }}
       >
-        <span>{selectedItems.map((item) => item.label).join(", ") || placeholder}</span>
+        <span className={`${styles.dropdown_button_text} ${selectedItems.length === 0 ? styles.nonSelected : ""}`}>
+          {selectedItems.map((item) => item.label).join(", ") || placeholder}
+        </span>
         <ArrowIcon width={20} height={20} rotate={isOpen ? 270 : 90} />
       </button>
       {items.length > 0 && (
@@ -67,10 +69,22 @@ export default function Dropdown({
         >
           {items.map((item) => (
             <li className={styles.dropdown_item} key={item.value}>
-              <button type="button" onClick={()=>{
-                onChange(item);
-                setIsOpen(false);
-              }}>{item.label}</button>
+              <button
+                type="button"
+                className={
+                  selectedItems.some(
+                    (selectedItem) => selectedItem.value === item.value,
+                  )
+                    ? styles.selected
+                    : ""
+                }
+                onClick={() => {
+                  onChange(item);
+                  setIsOpen(false);
+                }}
+              >
+                {item.label}
+              </button>
             </li>
           ))}
         </ul>
