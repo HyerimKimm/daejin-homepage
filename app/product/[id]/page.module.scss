@@ -16,7 +16,7 @@
 }
 
 .info_wrap {
-  @include mixin.flex(column, flex-start, flex-start, 0, 1);
+  @include mixin.flex(column, flex-start, flex-start, 8px, 1);
   max-width: 500px;
   padding: 12px 20px;
   background: variables.$grey07;
