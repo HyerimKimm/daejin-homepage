@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-import Button from "@/components/button/Button";
-import Dropdown from "@/components/dropdown/Dropdown";
 import Three from "@/components/three/Three";
+import { Button } from "@/components/ui/button";
+import { Dropdown } from "@/components/ui/dropdown";
 
 import styles from "./page.module.scss";
 

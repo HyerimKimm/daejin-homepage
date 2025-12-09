@@ -1,0 +1,14 @@
+.button {
+  background-color: variables.$brand01;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: variables.$white;
+  font-size: variables.$fn;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: variables.$brand02;
+  }
+}

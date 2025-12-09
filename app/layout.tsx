@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 
-import Header from "@/components/header/Header";
+import { Header } from "@/components/common/header";
 
 import "@/styles/globals.scss";
 

@@ -1,5 +1,5 @@
 .page_wrap {
   @include mixin.flex(column, flex-start, center, 0, 0);
   width: 100%;
-  height: calc(100% - variables.$headerHeight);
+  height: 100%;
 }

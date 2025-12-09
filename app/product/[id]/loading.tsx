@@ -1,7 +1,11 @@
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
+
+import styles from "./loading.module.scss";
+
 export default function LoadingPage() {
   return (
-    <div>
-      <h1>제품 상세 페이지 로딩</h1>
+    <div className={styles.loading_wrap}>
+      <LoadingSpinner size={40} />
     </div>
   );
 }

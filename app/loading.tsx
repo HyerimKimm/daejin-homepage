@@ -1,7 +1,9 @@
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
+
 export default function LoadingPage() {
   return (
     <div>
-      <h1>Loading...</h1>
+      <LoadingSpinner size={40} />
     </div>
   );
 }
