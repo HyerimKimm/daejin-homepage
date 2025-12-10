@@ -5,12 +5,11 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-import styles from "./page.module.scss";
 import Tab from "@/components/ui/tab/Tab";
 
-export default function ProductListPage() {
-  
+import styles from "./page.module.scss";
 
+export default function ProductListPage() {
   const [category, setCategory] = useState("all");
 
   const items = [
@@ -34,27 +33,7 @@ export default function ProductListPage() {
   return (
     <main className={styles.page_wrap}>
       <Tab items={items} activeValue={category} />
-      {/* <aside className={styles.category_wrap}>
 
-        <button
-          className={`${styles.category_item} ${category === "all" ? styles.active : ""}`}
-          onClick={() => setCategory("all")}
-        >
-          전체
-        </button>
-        <button
-          className={`${styles.category_item} ${category === "Standard" ? styles.active : ""}`}
-          onClick={() => setCategory("Standard")}
-        >
-          Standard
-        </button>
-        <button
-          className={`${styles.category_item} ${category === "Pro" ? styles.active : ""}`}
-          onClick={() => setCategory("Pro")}
-        >
-          Pro
-        </button>
-      </aside> */}
       <ul className={styles.product_list}>
         <Link href="/product/1">
           <li>

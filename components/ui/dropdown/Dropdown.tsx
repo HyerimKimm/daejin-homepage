@@ -56,7 +56,9 @@ export default function Dropdown({
           setIsOpen((prev) => !prev);
         }}
       >
-        <span className={`${styles.dropdown_button_text} ${selectedItems.length === 0 ? styles.nonSelected : ""}`}>
+        <span
+          className={`${styles.dropdown_button_text} ${selectedItems.length === 0 ? styles.nonSelected : ""}`}
+        >
           {selectedItems.map((item) => item.label).join(", ") || placeholder}
         </span>
         <ArrowIcon width={20} height={20} rotate={isOpen ? 270 : 90} />

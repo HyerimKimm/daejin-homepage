@@ -1,0 +1,13 @@
+.page_wrap {
+  @include mixin.flex(column, flex-start, center, 20px, 0);
+  width: 100%;
+  height: calc(100% - variables.$headerHeight);
+  padding: 20px;
+}
+
+.product_list {
+  width: 100%;
+  @include mixin.flex(row, center, center, 0, 0);
+  flex-wrap: wrap;
+  gap: 20px;
+}
