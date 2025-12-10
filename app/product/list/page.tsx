@@ -6,13 +6,36 @@ import Link from "next/link";
 import { useState } from "react";
 
 import styles from "./page.module.scss";
+import Tab from "@/components/ui/tab/Tab";
 
 export default function ProductListPage() {
+  
+
   const [category, setCategory] = useState("all");
+
+  const items = [
+    {
+      label: "전체",
+      value: "all",
+      onClick: () => setCategory("all"),
+    },
+    {
+      label: "Standard",
+      value: "Standard",
+      onClick: () => setCategory("Standard"),
+    },
+    {
+      label: "Pro",
+      value: "Pro",
+      onClick: () => setCategory("Pro"),
+    },
+  ];
 
   return (
     <main className={styles.page_wrap}>
-      <aside className={styles.category_wrap}>
+      <Tab items={items} activeValue={category} />
+      {/* <aside className={styles.category_wrap}>
+
         <button
           className={`${styles.category_item} ${category === "all" ? styles.active : ""}`}
           onClick={() => setCategory("all")}
@@ -31,7 +54,7 @@ export default function ProductListPage() {
         >
           Pro
         </button>
-      </aside>
+      </aside> */}
       <ul className={styles.product_list}>
         <Link href="/product/1">
           <li>
