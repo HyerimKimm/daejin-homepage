@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 
+import getProductList from "@/lib/api/product/getProductList";
+
 import { Header } from "@/components/common/header";
 
 import "@/styles/globals.scss";
@@ -73,15 +75,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const productList = await getProductList();
+
+  if (!productList.success) {
+    throw new Error("Product list not found");
+  }
+
   return (
     <html lang="ko">
       <body className={`${notoSansKR.variable}`}>
-        <Header />
+        <Header productList={productList.data} />
         {children}
       </body>
     </html>

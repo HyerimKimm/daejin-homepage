@@ -6,20 +6,15 @@ import { usePathname } from "next/navigation";
 
 import { useMemo, useState } from "react";
 
+import { ProductType } from "@/types/product";
+
 import styles from "./Header.module.scss";
 
-export default function Header() {
-  const productList = [
-    {
-      label: "폐달보드",
-      value: "pedalboard",
-    },
-    {
-      label: "책상",
-      value: "desk",
-    },
-  ];
-
+export default function Header({
+  productList,
+}: {
+  productList: ProductType[];
+}) {
   const pathname = usePathname();
 
   const activeProduct = useMemo(() => {
