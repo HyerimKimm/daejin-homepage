@@ -75,7 +75,7 @@ export default function ProductListPage() {
           image: "/pedal.png",
           price: 140000,
           description: "Standard-M3 설명",
-        }
+        },
       ],
     },
     {
