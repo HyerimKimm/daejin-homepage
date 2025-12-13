@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Three from "@/components/three/Three";
+import Three from "@/components/domain/three/Three";
 import { Button } from "@/components/ui/button";
 import { Dropdown } from "@/components/ui/dropdown";
 
