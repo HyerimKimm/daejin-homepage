@@ -1,11 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-
 import { getProductCategories } from "@/lib/api/product/getProductCategories";
 
 import Tab from "@/components/ui/tab/Tab";
-
-import { ProductCategoryType } from "@/types/product";
 
 import styles from "./page.module.scss";
 
@@ -13,27 +8,24 @@ export default async function ProductListPage({
   params,
   searchParams,
 }: {
-  params: {
+  params: Promise<{
     product: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     category: string;
-  };
+  }>;
 }) {
-  const { product } = params;
-  const { category = "" } = searchParams;
+  const { product } = await params;
+  const { category: selectedCategory } = await searchParams;
 
-  console.log(product);
-
+  console.log(selectedCategory);
   const categories = await getProductCategories(params.product);
 
-  const selectedCategory: ProductCategoryType | undefined =
-    categories.data.find((item) => {
-      return item.value === category;
-    });
   if (!categories.success) {
     throw new Error("Categories not found");
   }
+
+  console.log(categories.data);
 
   return (
     <main className={styles.page_wrap}>
@@ -43,7 +35,7 @@ export default async function ProductListPage({
           label: category.label,
           value: category.value,
         }))}
-        activeValue={category || categories.data[0].value}
+        activeValue={selectedCategory}
       />
       {/* 제품 목록 */}
     </main>
