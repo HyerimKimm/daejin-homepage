@@ -5,7 +5,6 @@ import styles from "./Tab.module.scss";
 export type TabItemType = {
   label: string;
   value: string;
-  onClick: () => void;
 };
 
 export default function Tab({
@@ -21,7 +20,6 @@ export default function Tab({
         <button
           key={item.value}
           className={`${styles.tab_item} ${item.value === activeValue ? styles.active : ""}`}
-          onClick={item.onClick}
         >
           <span>{item.label}</span>
         </button>
