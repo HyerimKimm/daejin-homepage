@@ -13,19 +13,37 @@
   max-width: variables.$tablet;
   justify-content: center;
 
+  &.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.two {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: variables.$mobile;
+  }
+
+  &.one {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: variables.$mobile;
+  }
+
   @media (max-width: variables.$mobile) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .product_item {
-  @include mixin.flex(column, center, center, 8px, 1);
+  @include mixin.flex(column, center, center, 4px, 1);
   width: 100%;
-  aspect-ratio: 1;
-  position: relative;
 
-  > img {
-    border-radius: 8px;
-    object-fit: contain;
+  > .product_image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/0.75;
+
+    > img {
+      border-radius: 12px;
+      object-fit: cover;
+    }
   }
 }

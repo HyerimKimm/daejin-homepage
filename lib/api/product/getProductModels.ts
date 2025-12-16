@@ -9,7 +9,7 @@ const getProductModelsMockData = (
     {
       id: "1",
       productId: "1",
-      categoryId: "1",
+      categoryId: "2",
       name: "Pro-M3",
       description: "Pro-M3 설명",
       image: "/pedal.png",
@@ -18,7 +18,7 @@ const getProductModelsMockData = (
     {
       id: "2",
       productId: "1",
-      categoryId: "1",
+      categoryId: "2",
       name: "Pro-M2",
       description: "Pro-M2 설명",
       image: "/pedal.png",
@@ -27,7 +27,7 @@ const getProductModelsMockData = (
     {
       id: "3",
       productId: "1",
-      categoryId: "2",
+      categoryId: "1",
       name: "Standard-M1",
       description: "Standard-M1 설명",
       image: "/pedal.png",
