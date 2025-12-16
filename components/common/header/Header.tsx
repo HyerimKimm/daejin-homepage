@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { ProductType } from "@/types/product";
 
@@ -30,9 +30,9 @@ export default function Header({
       <nav className={styles.nav_wrap}>
         {productList.map((item) => (
           <Link
-            key={item.value}
-            href={`/${item.value}/list`}
-            className={`${styles.nav_item} ${activeProduct === item.value ? styles.active : ""}`}
+            key={item.id}
+            href={`/${item.id}/list`}
+            className={`${styles.nav_item} ${activeProduct === item.id ? styles.active : ""}`}
           >
             {item.label}
           </Link>
