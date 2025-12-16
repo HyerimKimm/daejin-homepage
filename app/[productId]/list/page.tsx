@@ -10,22 +10,22 @@ export default async function ProductListPage({
   searchParams,
 }: {
   params: Promise<{
-    product: string;
+    productId: string;
   }>;
   searchParams: Promise<{
     categoryId: string;
   }>;
 }) {
-  const { product } = await params;
+  const { productId } = await params;
   const { categoryId = "" } = await searchParams;
 
-  const categories = await getProductCategories(product);
+  const categories = await getProductCategories(productId);
 
   if (!categories.success) {
     throw new Error("Categories not found");
   }
 
-  const models = await getProductModels(product, categoryId);
+  const models = await getProductModels(productId, categoryId);
 
   return (
     <main className={styles.page_wrap}>

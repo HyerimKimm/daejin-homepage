@@ -18,7 +18,7 @@ export default function Tab({
 }) {
   const router = useRouter();
 
-  const { product } = useParams();
+  const { productId } = useParams();
 
   console.log(activeValue);
 
@@ -27,7 +27,7 @@ export default function Tab({
       <button
         className={`${styles.tab_item} ${activeValue === "" ? styles.active : ""}`}
         onClick={() => {
-          router.push(`/${product}/list`);
+          router.push(`/${productId}/list`);
         }}
       >
         <span>전체</span>
@@ -37,7 +37,7 @@ export default function Tab({
           key={item.value}
           className={`${styles.tab_item} ${item.value === activeValue ? styles.active : ""}`}
           onClick={() => {
-            router.push(`/${product}/list?categoryId=${item.value}`);
+            router.push(`/${productId}/list?categoryId=${item.value}`);
           }}
         >
           <span>{item.label}</span>
