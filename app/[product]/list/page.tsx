@@ -1,4 +1,5 @@
 import { getProductCategories } from "@/lib/api/product/getProductCategories";
+import getProductModels from "@/lib/api/product/getProductModels";
 
 import Tab from "@/components/ui/tab/Tab";
 
@@ -18,14 +19,13 @@ export default async function ProductListPage({
   const { product } = await params;
   const { category: selectedCategory = "" } = await searchParams;
 
-  console.log(selectedCategory);
   const categories = await getProductCategories(product);
 
   if (!categories.success) {
     throw new Error("Categories not found");
   }
 
-  console.log(categories.data);
+  const models = await getProductModels(product, selectedCategory);
 
   return (
     <main className={styles.page_wrap}>
@@ -33,7 +33,7 @@ export default async function ProductListPage({
       <Tab
         items={categories.data.map((category) => ({
           label: category.label,
-          value: category.value,
+          value: category.id,
         }))}
         activeValue={selectedCategory}
       />
