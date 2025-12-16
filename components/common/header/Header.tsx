@@ -28,6 +28,7 @@ export default function Header({
         <span>D.Atelier</span>
       </Link>
       <nav className={styles.nav_wrap}>
+        {/* 제품 목록 */}
         {productList.map((item) => (
           <Link
             key={item.id}
