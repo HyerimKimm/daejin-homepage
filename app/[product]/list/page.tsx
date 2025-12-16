@@ -16,7 +16,7 @@ export default async function ProductListPage({
   }>;
 }) {
   const { product } = await params;
-  const { category: selectedCategory } = await searchParams;
+  const { category: selectedCategory = "" } = await searchParams;
 
   console.log(selectedCategory);
   const categories = await getProductCategories(product);

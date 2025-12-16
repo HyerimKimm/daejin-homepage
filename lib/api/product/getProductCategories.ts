@@ -8,19 +8,12 @@ const getProductCategoriesMockData: ResponseType<ProductCategoryType[]> = {
     {
       id: "1",
       productId: "1",
-      label: "전체",
-      value: "all",
-      description: "전체 카테고리는 뭐뭐입니다.",
-    },
-    {
-      id: "2",
-      productId: "1",
       label: "Standard",
       value: "standard",
       description: "Standard 카테고리는 뭐뭐입니다.",
     },
     {
-      id: "3",
+      id: "2",
       productId: "1",
       label: "Pro",
       value: "pro",

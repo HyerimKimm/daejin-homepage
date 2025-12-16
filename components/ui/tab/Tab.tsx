@@ -20,8 +20,18 @@ export default function Tab({
 
   const { product } = useParams();
 
+  console.log(activeValue);
+
   return (
     <aside className={styles.tab_wrap}>
+      <button
+        className={`${styles.tab_item} ${activeValue === "" ? styles.active : ""}`}
+        onClick={() => {
+          router.push(`/${product}/list`);
+        }}
+      >
+        <span>전체</span>
+      </button>
       {items.map((item) => (
         <button
           key={item.value}
