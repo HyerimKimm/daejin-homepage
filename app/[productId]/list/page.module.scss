@@ -8,10 +8,10 @@
 .product_list {
   width: 100%;
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: variables.$tablet;
+  justify-content: center;
 
   @media (max-width: variables.$mobile) {
     grid-template-columns: repeat(2, 1fr);
@@ -21,8 +21,11 @@
 .product_item {
   @include mixin.flex(column, center, center, 8px, 1);
   width: 100%;
-  flex: 1;
+  aspect-ratio: 1;
+  position: relative;
+
   > img {
     border-radius: 8px;
+    object-fit: contain;
   }
 }
