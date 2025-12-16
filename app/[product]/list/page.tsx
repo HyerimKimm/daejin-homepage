@@ -19,7 +19,7 @@ export default async function ProductListPage({
   const { category: selectedCategory } = await searchParams;
 
   console.log(selectedCategory);
-  const categories = await getProductCategories(params.product);
+  const categories = await getProductCategories(product);
 
   if (!categories.success) {
     throw new Error("Categories not found");

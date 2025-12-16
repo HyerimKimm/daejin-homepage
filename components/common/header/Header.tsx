@@ -31,7 +31,7 @@ export default function Header({
         {productList.map((item) => (
           <Link
             key={item.value}
-            href={`/${item.value}/list`}
+            href={`/${item.value}/list?category=all`}
             className={`${styles.nav_item} ${activeProduct === item.value ? styles.active : ""}`}
           >
             {item.label}
