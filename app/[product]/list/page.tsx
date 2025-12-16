@@ -13,11 +13,11 @@ export default async function ProductListPage({
     product: string;
   }>;
   searchParams: Promise<{
-    category: string;
+    categoryId: string;
   }>;
 }) {
   const { product } = await params;
-  const { category: selectedCategory = "" } = await searchParams;
+  const { categoryId = "" } = await searchParams;
 
   const categories = await getProductCategories(product);
 
@@ -25,7 +25,7 @@ export default async function ProductListPage({
     throw new Error("Categories not found");
   }
 
-  const models = await getProductModels(product, selectedCategory);
+  const models = await getProductModels(product, categoryId);
 
   return (
     <main className={styles.page_wrap}>
@@ -35,7 +35,7 @@ export default async function ProductListPage({
           label: category.label,
           value: category.id,
         }))}
-        activeValue={selectedCategory}
+        activeValue={categoryId}
       />
       {/* 제품 목록 */}
     </main>

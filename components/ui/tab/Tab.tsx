@@ -37,7 +37,7 @@ export default function Tab({
           key={item.value}
           className={`${styles.tab_item} ${item.value === activeValue ? styles.active : ""}`}
           onClick={() => {
-            router.push(`/${product}/list?category=${item.value}`);
+            router.push(`/${product}/list?categoryId=${item.value}`);
           }}
         >
           <span>{item.label}</span>
