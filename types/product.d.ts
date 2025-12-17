@@ -22,3 +22,13 @@ export type ProductModelType = {
   image: string;
   price: number;
 };
+
+export type ModelDetailType = {
+  id: string;
+  productId: string;
+  categoryId: string | null; /* 카테고리가 없는 경우 null */
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+};

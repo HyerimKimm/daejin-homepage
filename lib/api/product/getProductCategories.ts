@@ -1,3 +1,5 @@
+"use server";
+
 import { ProductCategoryType } from "@/types/product";
 import { ResponseType } from "@/types/response";
 

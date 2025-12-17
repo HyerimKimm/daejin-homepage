@@ -1,3 +1,5 @@
+"use server";
+
 import { ProductModelType } from "@/types/product";
 import { ResponseType } from "@/types/response";
 
