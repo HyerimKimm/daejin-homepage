@@ -8,7 +8,7 @@ import { Dropdown } from "@/components/ui/dropdown";
 
 import styles from "./page.module.scss";
 
-export default function ProductDetailPage() {
+export default function ProductDetailClient() {
   const [selectedOptions, setSelectedOptions] = useState<
     { label: string; value: string }[]
   >([]);

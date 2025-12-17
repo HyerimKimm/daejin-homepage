@@ -32,3 +32,12 @@ export type ModelDetailType = {
   image: string;
   price: number;
 };
+
+export type ModelOptionType = {
+  id: string;
+  modelId: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+};

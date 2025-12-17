@@ -50,16 +50,28 @@ export async function getModelDetail(
   );
 
   if (!model) {
-    return {
-      success: false,
-      message: "Model not found",
-      data: null,
-    };
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve({
+            success: false,
+            message: "Model not found",
+            data: null,
+          }),
+        1000,
+      );
+    });
   }
 
-  return {
-    success: true,
-    message: "Model detail fetched successfully",
-    data: model,
-  };
+  return new Promise((resolve) => {
+    setTimeout(
+      () =>
+        resolve({
+          success: true,
+          message: "Model detail fetched successfully",
+          data: model,
+        }),
+      1000,
+    );
+  });
 }
