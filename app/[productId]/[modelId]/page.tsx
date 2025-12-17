@@ -26,9 +26,6 @@ export default async function ProductDetailPage({
     throw new Error("Model options not found");
   }
 
-  console.log(modelDetail.data);
-  console.log(modelOptions.data);
-
   return (
     <main className={styles.page_wrap}>
       <article className={styles.article_wrap}>

@@ -20,8 +20,6 @@ export default function Tab({
 
   const { productId } = useParams();
 
-  console.log(activeValue);
-
   return (
     <aside className={styles.tab_wrap}>
       <button
