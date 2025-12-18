@@ -1,0 +1,11 @@
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: variables.$grey07;
+  border-radius: 8px;
+  border: 1px solid variables.$grey05;
+  color: variables.$white;
+  font-size: variables.$fn;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,12 @@
+.page_wrap {
+  padding: 20px;
+  width: 100%;
+  height: calc(100% - variables.$headerHeight);
+  @include mixin.flex(column, flex-start, center, 0, 0);
+}
+
+.form_wrap {
+  width: 100%;
+  max-width: variables.$mobile;
+  @include mixin.flex(column, flex-start, center, 20px, 0);
+}
