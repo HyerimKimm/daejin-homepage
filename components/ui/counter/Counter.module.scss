@@ -1,0 +1,26 @@
+.counter_wrap {
+  @include mixin.flex(row, center, center, 12px, 0);
+}
+
+.counter_button {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: variables.$grey07;
+  border: 1px solid variables.$grey05;
+  color: variables.$white;
+  font-size: variables.$fn;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: variables.$grey06;
+  }
+}
+
+.counter_value {
+  font-size: variables.$fn;
+  font-weight: 500;
+  color: variables.$white;
+}

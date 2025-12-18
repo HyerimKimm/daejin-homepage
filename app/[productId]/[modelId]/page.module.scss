@@ -10,7 +10,7 @@
   max-width: variables.$tablet;
   @include mixin.flex(row, center, flex-start, 12px, 0);
 
-  @media (max-width: variables.$mobile) {
+  @media (max-width: variables.$tablet) {
     @include mixin.flex(column, flex-start, center, 12px, 0);
   }
 }

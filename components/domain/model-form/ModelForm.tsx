@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import Counter from "@/components/ui/counter/Counter";
 import { Dropdown } from "@/components/ui/dropdown";
 
 import { ModelDetailType } from "@/types/product";
@@ -20,6 +21,7 @@ export default function ModelForm({
   const [selectedOptions, setSelectedOptions] = useState<
     { label: string; value: string }[]
   >([]);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <form className={styles.form_wrap}>
@@ -47,7 +49,14 @@ export default function ModelForm({
 
       <div className={styles.form_item}>
         <label>수량</label>
-        <input type="number" min="1" max="100" />
+        {/* <input type="number" min="1" max="100" /> */}
+        <Counter
+          value={quantity}
+          onChange={(value: number) => setQuantity(value)}
+          min={1}
+          max={100}
+          step={1}
+        />
       </div>
 
       <Button type="submit">구매하기</Button>
