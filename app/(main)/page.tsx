@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import HeroBanner from "@/components/domain/hero-banner/HeroBanner";
+import { Footer } from "@/components/common/footer";
+import { HeroBanner } from "@/components/domain/hero-banner";
 
 import styles from "./page.module.scss";
 
@@ -75,6 +76,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }

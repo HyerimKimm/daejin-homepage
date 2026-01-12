@@ -1,0 +1,119 @@
+.footer_wrap {
+  width: 100%;
+  background-color: variables.$grey08;
+  border-top: 1px solid variables.$grey06;
+  margin-top: auto;
+}
+
+.footer_content {
+  width: 100%;
+  max-width: variables.$desktop;
+  margin: 0 auto;
+  padding: 60px 24px 24px;
+}
+
+.footer_top {
+  @include mixin.flex(row, space-between, flex-start, 40px, 0);
+  margin-bottom: 40px;
+
+  @media (max-width: variables.$tablet) {
+    @include mixin.flex(column, flex-start, flex-start, 40px, 0);
+  }
+}
+
+.footer_info {
+  @include mixin.flex(column, flex-start, flex-start, 20px, 1);
+  flex: 1;
+  min-width: 200px;
+}
+
+.company_name {
+  @include mixin.font(variables.$fh3, 700, variables.$white, null);
+  margin-bottom: 8px;
+}
+
+.company_details {
+  @include mixin.flex(column, flex-start, flex-start, 8px, 0);
+
+  p {
+    @include mixin.flex(row, flex-start, center, 8px, 0);
+    @include mixin.font(variables.$fs, 400, variables.$grey04, null);
+    line-height: 1.5;
+
+    span {
+      color: variables.$grey05;
+      min-width: 100px;
+    }
+  }
+}
+
+.footer_links {
+  @include mixin.flex(row, flex-start, flex-start, 40px, 0);
+  flex: 1;
+  min-width: 200px;
+
+  @media (max-width: variables.$tablet) {
+    width: 100%;
+  }
+}
+
+.link_group {
+  @include mixin.flex(column, flex-start, flex-start, 12px, 0);
+}
+
+.link_title {
+  @include mixin.font(variables.$fn, 700, variables.$white, null);
+  margin-bottom: 4px;
+}
+
+.link_item {
+  @include mixin.font(variables.$fs, 400, variables.$grey04, null);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: variables.$brand01;
+  }
+}
+
+.footer_contact {
+  @include mixin.flex(column, flex-start, flex-start, 12px, 0);
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact_title {
+  @include mixin.font(variables.$fn, 700, variables.$white, null);
+  margin-bottom: 4px;
+}
+
+.contact_item {
+  @include mixin.flex(row, flex-start, center, 8px, 0);
+  @include mixin.font(variables.$fs, 400, variables.$grey04, null);
+  line-height: 1.5;
+
+  span {
+    color: variables.$grey05;
+    min-width: 60px;
+  }
+
+  a {
+    color: variables.$grey04;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: variables.$brand01;
+    }
+  }
+}
+
+.footer_bottom {
+  padding-top: 24px;
+  border-top: 1px solid variables.$grey06;
+  text-align: center;
+}
+
+.copyright {
+  @include mixin.font(variables.$fs, 400, variables.$grey05, null);
+}
