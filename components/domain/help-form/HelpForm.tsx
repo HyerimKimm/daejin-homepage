@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Checkbox from "@/components/ui/checkbox/Checkbox";
 import { Dropdown } from "@/components/ui/dropdown";
 import { Input } from "@/components/ui/input";
+import Textarea from "@/components/ui/textarea/Textarea";
 
 import styles from "./HelpForm.module.scss";
 
@@ -27,6 +28,7 @@ const helpTypes = [
 export default function HelpForm() {
   const [helpType, setHelpType] = useState<string>("");
   const [privacy, setPrivacy] = useState<boolean>(false);
+  const [content, setContent] = useState<string>("");
 
   return (
     <form className={styles.form}>
@@ -64,20 +66,25 @@ export default function HelpForm() {
 
       <div className={styles.form_item}>
         <label>문의 내용</label>
-        <textarea name="content" />
-      </div>
-
-      <div className={styles.form_item}>
-        <Checkbox
-          name="privacy"
-          id="privacy"
-          checked={privacy}
-          label="개인정보 수집 및 이용 동의"
-          onChange={(checked: boolean) => {
-            setPrivacy(checked);
+        <Textarea
+          name="content"
+          placeholder="문의 내용을 입력해 주세요"
+          value={content}
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            setContent(e.target.value);
           }}
         />
       </div>
+
+      <Checkbox
+        name="privacy"
+        id="privacy"
+        checked={privacy}
+        label="개인정보 수집 및 이용 동의"
+        onChange={(checked: boolean) => {
+          setPrivacy(checked);
+        }}
+      />
 
       <Button type="submit">문의하기</Button>
     </form>
