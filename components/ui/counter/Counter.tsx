@@ -30,7 +30,6 @@ export default function Counter({
         type="button"
         className={styles.counter_button}
         onClick={() => {
-          console.log(value + step);
           onChange(value + step);
         }}
         disabled={value >= max}

@@ -3,10 +3,12 @@
 import { ProductCategoryType } from "@/types/product";
 import { ResponseType } from "@/types/response";
 
-const getProductCategoriesMockData = (
-  productId: string,
-): ResponseType<ProductCategoryType[]> => {
-  const categories = [
+import { unstable_cache } from "next/cache";
+
+// DB 조회를 시뮬레이션하는 함수 (나중에 실제 DB 조회로 변경될 부분)
+async function fetchAllProductCategories(): Promise<ProductCategoryType[]> {
+  // 실제 DB 조회 로직이 여기에 들어갈 예정
+  const categories: ProductCategoryType[] = [
     {
       id: "1",
       productId: "1",
@@ -37,19 +39,38 @@ const getProductCategoriesMockData = (
     },
   ];
 
-  const result = {
-    success: true,
-    message: "Product categories fetched successfully",
-    data: categories.filter((category) => category.productId === productId),
-  };
+  // DB 조회 시뮬레이션
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(categories), 1000);
+  });
+}
 
-  return result;
-};
+// 전체 제품 카테고리 목록을 캐시하는 함수
+const getCachedAllProductCategories = unstable_cache(
+  async () => {
+    return await fetchAllProductCategories();
+  },
+  ["product-categories-all"], // 캐시 키
+  {
+    tags: ["product-categories"], // revalidate 시 사용할 태그
+    revalidate: 3600, // 1시간마다 재검증 (초 단위)
+  },
+);
 
 export async function getProductCategories(
   productId: string,
 ): Promise<ResponseType<ProductCategoryType[]>> {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(getProductCategoriesMockData(productId)), 1000);
-  });
+  // 캐시된 전체 제품 카테고리 목록 가져오기
+  const allCategories = await getCachedAllProductCategories();
+
+  // 캐시된 데이터에서 특정 제품의 카테고리 필터링
+  const categories = allCategories.filter(
+    (category) => category.productId === productId,
+  );
+
+  return {
+    success: true,
+    message: "Product categories fetched successfully",
+    data: categories,
+  };
 }

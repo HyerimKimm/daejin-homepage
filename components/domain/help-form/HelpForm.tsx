@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import Checkbox from "@/components/ui/checkbox/Checkbox";
 import { Dropdown } from "@/components/ui/dropdown";
 import { Input } from "@/components/ui/input";
 
@@ -25,6 +26,7 @@ const helpTypes = [
 
 export default function HelpForm() {
   const [helpType, setHelpType] = useState<string>("");
+  const [privacy, setPrivacy] = useState<boolean>(false);
 
   return (
     <form className={styles.form}>
@@ -65,7 +67,17 @@ export default function HelpForm() {
         <textarea name="content" />
       </div>
 
-      <div>개인정보 수집 및 이용 동의</div>
+      <div className={styles.form_item}>
+        <Checkbox
+          name="privacy"
+          id="privacy"
+          checked={privacy}
+          label="개인정보 수집 및 이용 동의"
+          onChange={(checked: boolean) => {
+            setPrivacy(checked);
+          }}
+        />
+      </div>
 
       <Button type="submit">문의하기</Button>
     </form>
