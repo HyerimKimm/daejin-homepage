@@ -1,5 +1,153 @@
 .page_wrap {
   @include mixin.flex(column, flex-start, center, 0, 0);
   width: 100%;
-  height: calc(100% - variables.$headerHeight);
+  height: calc(100vh - variables.$headerHeight);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // Firefox 스크롤바 스타일
+  scrollbar-width: thin;
+  scrollbar-color: rgba(variables.$grey05, 0.5) transparent;
+
+  // Webkit 브라우저 (Chrome, Edge 등) 스크롤바 스타일
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(variables.$grey05, 0.5);
+    border-radius: 4px;
+    
+    &:hover {
+      background-color: rgba(variables.$grey05, 0.7);
+    }
+  }
+}
+
+// 제품 소개 섹션
+.products_section {
+  width: 100%;
+  padding: 100px 24px;
+  background-color: variables.$grey08;
+}
+
+.section_title {
+  @include mixin.font(variables.$fh2, 700, variables.$white, null);
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.products_grid {
+  @include mixin.flex(row, center, stretch, 40px, 0);
+  width: 100%;
+  max-width: variables.$desktop;
+  margin: 0 auto;
+
+  @media (max-width: variables.$tablet) {
+    @include mixin.flex(column, center, stretch, 30px, 0);
+  }
+}
+
+.product_card {
+  @include mixin.flex(column, flex-start, flex-start, 0, 0);
+  flex: 1;
+  max-width: 500px;
+  background-color: variables.$grey07;
+  border-radius: 16px;
+  border: 1px solid variables.$grey05;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: variables.$brand01;
+    box-shadow: 0 8px 24px rgba(254, 126, 55, 0.2);
+  }
+}
+
+.product_image_wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+.product_image_placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, variables.$grey06 0%, variables.$grey07 100%);
+  @include mixin.flex(row, center, center, 0, 0);
+
+  &::after {
+    content: "제품 이미지";
+    @include mixin.font(variables.$fn, 400, variables.$grey05, null);
+  }
+}
+
+.product_info {
+  @include mixin.flex(column, flex-start, flex-start, 12px, 0);
+  padding: 24px;
+  width: 100%;
+}
+
+.product_name {
+  @include mixin.font(variables.$fh3, 700, variables.$white, null);
+}
+
+.product_description {
+  @include mixin.font(variables.$fn, 400, variables.$grey04, null);
+  line-height: 1.5;
+}
+
+// 특징 섹션
+.features_section {
+  width: 100%;
+  padding: 100px 24px;
+  background-color: variables.$grey07;
+}
+
+.features_grid {
+  @include mixin.flex(row, center, flex-start, 40px, 0);
+  width: 100%;
+  max-width: variables.$desktop;
+  margin: 0 auto;
+
+  @media (max-width: variables.$tablet) {
+    @include mixin.flex(column, center, flex-start, 40px, 0);
+  }
+}
+
+.feature_item {
+  @include mixin.flex(column, flex-start, center, 20px, 0);
+  flex: 1;
+  text-align: center;
+  max-width: 300px;
+}
+
+.feature_icon {
+  @include mixin.size(80px, 80px);
+  background: linear-gradient(135deg, variables.$brand01 0%, variables.$brand02 100%);
+  border-radius: 50%;
+  margin: 0 auto;
+  @include mixin.flex(row, center, center, 0, 0);
+  position: relative;
+
+  &::after {
+    content: "✓";
+    @include mixin.font(32px, 700, variables.$white, null);
+  }
+}
+
+.feature_title {
+  @include mixin.font(variables.$fl, 700, variables.$white, null);
+}
+
+.feature_description {
+  @include mixin.font(variables.$fn, 400, variables.$grey04, null);
+  line-height: 1.6;
 }
