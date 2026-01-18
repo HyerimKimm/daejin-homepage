@@ -1,5 +1,6 @@
 "use client";
 
+import { validateEmail, validatePhone } from "@/lib/validates";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -25,23 +26,6 @@ const helpTypes = [
     value: "3",
   },
 ];
-
-// 전화번호 유효성 검사 (대한민국 기준)
-const validatePhone = (phone: string): boolean => {
-  // 하이픈 제거 후 숫자만 추출
-  const phoneNumber = phone.replace(/-/g, "");
-
-  // 010, 011, 016, 017, 018, 019로 시작하는 10-11자리 숫자
-  const phoneRegex = /^(010|011|016|017|018|019)[0-9]{7,8}$/;
-
-  return phoneRegex.test(phoneNumber);
-};
-
-// 이메일 유효성 검사
-const validateEmail = (email: string): boolean => {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailRegex.test(email);
-};
 
 export default function HelpForm() {
   const shotToast = useToast();
