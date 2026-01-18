@@ -80,7 +80,7 @@ export default function HelpForm() {
         name="privacy"
         id="privacy"
         checked={privacy}
-        label="개인정보 수집 및 이용 동의"
+        label="개인정보 수집 및 이용에 동의합니다."
         onChange={(checked: boolean) => {
           setPrivacy(checked);
         }}

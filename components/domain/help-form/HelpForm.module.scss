@@ -7,15 +7,23 @@
   width: 100%;
   @include mixin.flex(row, flex-start, center, 0, 0);
 
+  @media (max-width: variables.$mobile) {
+    @include mixin.flex(column, flex-start, center, 0, 0);
+  }
+
   > label {
     flex-shrink: 0;
     width: 160px;
+
     @include mixin.font(
       variables.$fn,
       400,
       variables.$grey04,
       variables.$defaultFont
     );
+
+    @media (max-width: variables.$mobile) {
+      width: 100%;
+    }
   }
 }
-

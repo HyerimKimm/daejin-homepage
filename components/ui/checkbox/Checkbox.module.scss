@@ -1,0 +1,61 @@
+.checkbox_wrap {
+  @include mixin.flex(row, flex-start, center, 8px, 0);
+}
+
+.checkbox_input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.checkbox_label {
+  @include mixin.flex(row, flex-start, center, 8px, 0);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox_custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid variables.$grey05;
+  border-radius: 4px;
+  background-color: variables.$grey07;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+
+  // 체크된 상태
+  .checkbox_input:checked + .checkbox_label & {
+    background-color: variables.$brand01;
+    border-color: variables.$brand01;
+  }
+
+  // 호버 상태
+  .checkbox_label:hover & {
+    border-color: variables.$brand01;
+  }
+
+  // 포커스 상태
+  .checkbox_input:focus + .checkbox_label & {
+    outline: 1px solid variables.$brand01;
+    outline-offset: 0px;
+  }
+}
+
+.checkbox_icon {
+  width: 14px;
+  height: 14px;
+  color: variables.$white;
+  stroke-width: 2.5;
+}
+
+.checkbox_text {
+  font-size: variables.$fn;
+  font-weight: 400;
+  color: variables.$grey07;
+}
