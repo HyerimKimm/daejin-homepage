@@ -6,7 +6,7 @@ export default async function HelpPage() {
   return (
     <main className={styles.page_wrap}>
       <div className={styles.form_wrap}>
-        <h1>고객지원</h1>
+        <h1 className={styles.title}>1:1 문의</h1>
         <HelpForm />
       </div>
     </main>

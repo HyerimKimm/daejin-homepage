@@ -56,6 +56,14 @@ async function ProductList({
 }) {
   const models = await getProductModels(productId, categoryId);
 
+  if (models.data.length === 0) {
+    return (
+      <div className={styles.no_models}>
+        <p>모델이 없습니다.</p>
+      </div>
+    );
+  }
+
   return (
     <ul
       className={`${styles.product_list} ${models.data.length === 1 ? styles.one : models.data.length === 2 ? styles.two : models.data.length === 3 ? styles.three : ""}`}
@@ -70,6 +78,7 @@ async function ProductList({
           </li>
         </Link>
       ))}
+      
     </ul>
   );
 }

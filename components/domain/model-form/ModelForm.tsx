@@ -25,6 +25,7 @@ export default function ModelForm({
 
   return (
     <form className={styles.form_wrap}>
+      <div className={styles.form_items}>
       <div className={styles.form_item}>
         <label>추가 부품</label>
         <Dropdown
@@ -58,8 +59,9 @@ export default function ModelForm({
           step={1}
         />
       </div>
+      </div>
 
-      <Button type="submit">구매하기</Button>
+      <Button type="submit" className={styles.button}>구매하기</Button>
     </form>
   );
 }

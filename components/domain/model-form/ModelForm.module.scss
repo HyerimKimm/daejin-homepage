@@ -1,10 +1,15 @@
 .form_wrap {
-  @include mixin.flex(column, flex-start, center, 0, 1);
+  @include mixin.flex(column, flex-start, center, 20px, 1);
 
   @media (max-width: variables.$tablet) {
     width: 100%;
     max-width: 500px;
   }
+}
+
+.form_items {
+  width: 100%;
+  @include mixin.flex(column, flex-start, center, 0, 0);
 }
 
 .form_item {
@@ -26,6 +31,5 @@
 
 .button {
   width: 100%;
-  padding: 8px 12px;
-  background-color: variables.$brand01;
+  font-size: variables.$fl;
 }

@@ -170,6 +170,15 @@ export default function HelpForm() {
         }}
       />
 
+      <div className={styles.privacy_info}>
+        <p>D.atelier는 아래의 목적으로 개인정보를 수집 및 이용하며, 개인정보를 안전하게 취급하는데 최선을 다합니다.</p>
+        <ul>
+          <li>수집 항목: 이름, 이메일, 연락처</li>
+          <li>수집 목적: 문의글 접수 및 상담</li>
+          <li>보유 기간: 1년</li>
+        </ul>
+      </div>
+
       <Button type="submit" className={styles.submit_button}>
         문의하기
       </Button>
