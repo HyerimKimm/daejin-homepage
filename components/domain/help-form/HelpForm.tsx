@@ -7,6 +7,7 @@ import Checkbox from "@/components/ui/checkbox/Checkbox";
 import { Dropdown } from "@/components/ui/dropdown";
 import { Input } from "@/components/ui/input";
 import Textarea from "@/components/ui/textarea/Textarea";
+import { useToast } from "@/components/ui/toast";
 
 import styles from "./HelpForm.module.scss";
 
@@ -25,13 +26,93 @@ const helpTypes = [
   },
 ];
 
+// 전화번호 유효성 검사 (대한민국 기준)
+const validatePhone = (phone: string): boolean => {
+  // 하이픈 제거 후 숫자만 추출
+  const phoneNumber = phone.replace(/-/g, "");
+
+  // 010, 011, 016, 017, 018, 019로 시작하는 10-11자리 숫자
+  const phoneRegex = /^(010|011|016|017|018|019)[0-9]{7,8}$/;
+
+  return phoneRegex.test(phoneNumber);
+};
+
+// 이메일 유효성 검사
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+};
+
 export default function HelpForm() {
+  const shotToast = useToast();
+
   const [helpType, setHelpType] = useState<string>("");
-  const [privacy, setPrivacy] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [privacy, setPrivacy] = useState<boolean>(false);
+
+  const handlePhoneChange = (value: string) => {
+    // 숫자만 허용하고 최대 15자리로 제한 (E.164 국제 표준)
+    const numbersOnly = value.replace(/[^\d]/g, "");
+    if (numbersOnly.length <= 15) {
+      setPhone(numbersOnly);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!helpType) {
+      shotToast("error", "문의 유형을 선택해주세요.");
+      return;
+    }
+
+    if (!name) {
+      shotToast("error", "이름을 입력해주세요.");
+      return;
+    }
+
+    if (!phone) {
+      shotToast("error", "전화번호를 입력해주세요.");
+      return;
+    }
+
+    if (!validatePhone(phone)) {
+      shotToast(
+        "error",
+        "올바른 전화번호 형식을 입력해주세요. (예: 01012345678)",
+      );
+      return;
+    }
+
+    if (!email) {
+      shotToast("error", "이메일을 입력해주세요.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      shotToast("error", "올바른 이메일 형식을 입력해주세요.");
+      return;
+    }
+
+    if (!content) {
+      shotToast("error", "문의 내용을 입력해주세요.");
+      return;
+    }
+
+    if (!privacy) {
+      shotToast("error", "개인정보 수집 및 이용에 동의해주세요.");
+      return;
+    }
+
+    // 유효성 검사 통과 시 성공 메시지
+    shotToast("success", "문의가 접수되었습니다.");
+  };
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.form_item}>
         <label>문의 유형</label>
         <Dropdown
@@ -47,21 +128,40 @@ export default function HelpForm() {
 
       <div className={styles.form_item}>
         <label>이름</label>
-        <Input type="text" name="name" placeholder="이름을 입력해 주세요" />
+        <Input
+          type="text"
+          name="name"
+          value={name}
+          onChange={(value: string) => {
+            setName(value);
+          }}
+          placeholder="이름을 입력해 주세요"
+        />
       </div>
 
       <div className={styles.form_item}>
         <label>전화번호</label>
         <Input
           type="text"
+          value={phone}
+          onChange={handlePhoneChange}
           name="phone"
-          placeholder="전화번호를 입력해 주세요"
+          placeholder="01012345678"
+          maxLength={15}
         />
       </div>
 
       <div className={styles.form_item}>
         <label>이메일</label>
-        <Input type="email" name="email" placeholder="이메일을 입력해 주세요" />
+        <Input
+          type="email"
+          name="email"
+          value={email}
+          onChange={(value: string) => {
+            setEmail(value);
+          }}
+          placeholder="이메일을 입력해 주세요"
+        />
       </div>
 
       <div className={styles.form_item}>
@@ -86,7 +186,9 @@ export default function HelpForm() {
         }}
       />
 
-      <Button type="submit">문의하기</Button>
+      <Button type="submit" className={styles.submit_button}>
+        문의하기
+      </Button>
     </form>
   );
 }

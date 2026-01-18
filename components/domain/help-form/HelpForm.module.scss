@@ -1,6 +1,6 @@
 .form {
   width: 100%;
-  @include mixin.flex(column, flex-start, center, 12px, 0);
+  @include mixin.flex(column, flex-start, center, 20px, 0);
 }
 
 .form_item {
@@ -8,7 +8,7 @@
   @include mixin.flex(row, flex-start, center, 0, 0);
 
   @media (max-width: variables.$mobile) {
-    @include mixin.flex(column, flex-start, center, 0, 0);
+    @include mixin.flex(column, flex-start, center, 8px, 0);
   }
 
   > label {
@@ -25,5 +25,15 @@
     @media (max-width: variables.$mobile) {
       width: 100%;
     }
+  }
+}
+
+.submit_button {
+  width: 200px;
+  font-size: variables.$fl;
+  font-weight: 500;
+
+  @media (max-width: variables.$mobile) {
+    width: 100%;
   }
 }

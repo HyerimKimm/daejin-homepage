@@ -1,0 +1,58 @@
+.toast_wrap {
+  width: fit-content;
+  position: fixed;
+  bottom: 1rem;
+  overflow: visible;
+  @include mixin.flex(column, flex-end, center, 8px, 0);
+  z-index: variables.$ziModal;
+}
+
+.toast_item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: variables.$fn;
+  font-weight: 500;
+  color: variables.$white;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  &.success {
+    background: variables.$green01;
+  }
+
+  &.error {
+    background: variables.$red01;
+  }
+
+  &.entering {
+    animation: toastEnter 0.3s ease forwards;
+  }
+
+  &.exiting {
+    animation: toastExit 0.3s ease forwards;
+  }
+}
+
+@keyframes toastEnter {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.5);
+  }
+}

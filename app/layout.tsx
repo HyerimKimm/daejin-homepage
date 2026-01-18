@@ -4,6 +4,7 @@ import { Noto_Sans_KR } from "next/font/google";
 import getProductList from "@/lib/api/product/getProductList";
 
 import { Header } from "@/components/common/header";
+import Toast from "@/components/ui/toast/Toast";
 
 import "@/styles/globals.scss";
 
@@ -91,6 +92,7 @@ export default async function RootLayout({
       <body className={`${notoSansKR.variable}`}>
         <Header productList={productList.data} />
         {children}
+        <Toast />
       </body>
     </html>
   );
